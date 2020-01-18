@@ -1,0 +1,14 @@
+version: '3'
+services:
+  elderly-jingkai-spring:
+    restart: always
+    build: ./elderly-jingkai-spring
+    working_dir: /vdb_data/java-elder-project/jingkai-project/service/elderly-jingkai-spring
+    volumes:
+    - ./elderly-jingkai-spring:/vdb_data/java-elder-project/jingkai-project/service/elderly-jingkai-spring
+    - ~/.m2:/root/.m2
+    ports:
+    - "9021:8082"
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=prod
+
+#注意docker发布时候要将此文件放置到elderly-jingkai-spring齐平的目录下启动

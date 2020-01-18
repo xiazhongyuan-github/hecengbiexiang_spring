@@ -1,0 +1,50 @@
+server:
+  port: 9090
+#切换测试环境
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      resolve-lazily: true
+      max-file-size: 10MB
+      max-request-size: 30MB
+  jackson:
+    time-zone: GMT+8
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/videos/,classpath:/static/,classpath:/public/
+  mvc:
+    static-path-pattern: /**
+  devtools:
+    livereload:
+      enabled: true
+  profiles:
+    active: dev
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  transaction:
+    rollback-on-commit-failure: true
+  policeswitch: false
+  server:
+    tomcat:
+    max-http-header-size: 65536
+
+
+
+
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://172.81.235.55:3306/hecengbiexiang?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 333333
+    driver-class-name: com.mysql.jdbc.Driver
+
