@@ -13,9 +13,9 @@ import java.util.Date;
  * @version: $version$
  */
 public class Utils {
-    public static String getCommentCode() {
+    public static String getCode(String title) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         String format = simpleDateFormat.format(new Date());
-        return CommonCode.COMMENT_CODE + format;
+        return title + format;
     }
 }

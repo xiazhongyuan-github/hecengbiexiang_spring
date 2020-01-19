@@ -1,6 +1,6 @@
-package com.hitachi.elderly.entity;
+package com.hitachi.elderly.comment.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
+import com.hitachi.elderly.entity.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

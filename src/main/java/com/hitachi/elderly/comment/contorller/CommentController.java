@@ -1,11 +1,11 @@
-package com.hitachi.elderly.controller;
+package com.hitachi.elderly.comment.contorller;
 
 import com.hitachi.elderly.bean.ResultMsg;
+import com.hitachi.elderly.comment.model.CommentsRequestModel;
+import com.hitachi.elderly.comment.model.GetgommentsModel;
+import com.hitachi.elderly.comment.service.CommentService;
 import com.hitachi.elderly.constant.ResultStatusCode;
 import com.hitachi.elderly.exception.BizException;
-import com.hitachi.elderly.model.CommentsRequestModel;
-import com.hitachi.elderly.model.GetgommentsModel;
-import com.hitachi.elderly.service.CommentService;
 import com.hitachi.elderly.utils.ResultUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sun.dc.pr.PRError;
 
 import java.util.List;
 

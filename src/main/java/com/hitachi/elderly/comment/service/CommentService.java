@@ -1,7 +1,7 @@
-package com.hitachi.elderly.service;
+package com.hitachi.elderly.comment.service;
 
-import com.hitachi.elderly.model.CommentsRequestModel;
-import com.hitachi.elderly.model.GetgommentsModel;
+import com.hitachi.elderly.comment.model.CommentsRequestModel;
+import com.hitachi.elderly.comment.model.GetgommentsModel;
 
 import java.util.List;
 

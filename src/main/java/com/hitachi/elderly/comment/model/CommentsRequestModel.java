@@ -1,4 +1,4 @@
-package com.hitachi.elderly.model;
+package com.hitachi.elderly.comment.model;
 
 /**
  * @author ：xzy

@@ -1,6 +1,6 @@
-package com.hitachi.elderly.repository;
+package com.hitachi.elderly.comment.repository;
 
-import com.hitachi.elderly.entity.CommentsEntity;
+import com.hitachi.elderly.comment.entity.CommentsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
