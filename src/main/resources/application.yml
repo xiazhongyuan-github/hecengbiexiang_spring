@@ -1,5 +1,5 @@
 server:
-  port: 9090
+  port: 443
 #切换测试环境
 spring:
   servlet:
@@ -43,7 +43,7 @@ spring:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://172.81.235.55:3306/hecengbiexiang?useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://112.125.122.114:3306/hecengbiexiang?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
     username: root
     password: 333333
     driver-class-name: com.mysql.jdbc.Driver
