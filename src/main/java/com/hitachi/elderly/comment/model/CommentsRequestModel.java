@@ -14,6 +14,7 @@ public class CommentsRequestModel {
     private String session_key;//换取openid的key
     private String articleId;//公众号文章id
     private String openId;//用户的openid
+    private String code;//编号
 
     public String getName() {
         return name;
@@ -61,5 +62,13 @@ public class CommentsRequestModel {
 
     public void setOpenId(String openId) {
         this.openId = openId;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

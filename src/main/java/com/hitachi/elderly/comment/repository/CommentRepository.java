@@ -11,4 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @version: $version$
  */
 public interface CommentRepository extends JpaRepository<CommentsEntity, String> {
+    CommentsEntity findFirstByCode(String code);
 }

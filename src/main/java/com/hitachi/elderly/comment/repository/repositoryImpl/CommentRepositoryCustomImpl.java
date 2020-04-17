@@ -1,17 +1,20 @@
 package com.hitachi.elderly.comment.repository.repositoryImpl;
 
+import com.hitachi.elderly.comment.entity.CommentsEntity;
 import com.hitachi.elderly.comment.model.CommentsRequestModel;
 import com.hitachi.elderly.comment.model.GetgommentsModel;
 import com.hitachi.elderly.comment.repository.CommentRepositoryCustom;
-import com.hitachi.elderly.constant.CommonCode;
 import org.hibernate.query.internal.NativeQueryImpl;
 import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,7 +31,7 @@ public class CommentRepositoryCustomImpl implements CommentRepositoryCustom {
     public List<GetgommentsModel> getCommentsByArticleId(CommentsRequestModel commentsRequestModel) {
         entityManager.clear();
         StringBuffer sql = new StringBuffer();
-        sql.append(" select name,head_portrait as headPortrait,comments_content as commentContent,code from comments_entity where article_id = '"+commentsRequestModel.getArticleId()+"' order by created_at desc");
+        sql.append(" select name,head_portrait as headPortrait,comments_content as commentContent,code,wx_id as wxId from comments_entity where article_id = '"+commentsRequestModel.getArticleId()+"' and is_delete = FALSE order by created_at desc");
         Query query_list = entityManager.createNativeQuery(sql.toString());
         List<GetgommentsModel> list = query_list.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.aliasToBean(GetgommentsModel.class)).getResultList();
         return list;
@@ -57,5 +60,26 @@ public class CommentRepositoryCustomImpl implements CommentRepositoryCustom {
         List<BigInteger> countList = query.getResultList();
         Integer counts = countList.get(0).intValue();
         return counts > 0? true:false;
+    }
+
+    /**
+    *@Description 通用修改
+    *@Author zhongyuan
+    *@Date 2020/4/17
+    *@Time 18:01
+    */
+    @Override
+    @Transactional
+    public Integer update(CommentsEntity commentsEntity) {
+        entityManager.clear();
+        StringBuffer sql = new StringBuffer();
+        sql.append(" update comments_entity set version = version + 1");
+        sql.append(" ,updated_at = '" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(commentsEntity.getUpdated_at()) + "' ");
+        sql.append(" ,updated_by ='" + commentsEntity.getUpdated_by() + "' ");
+        sql.append(" ,is_delete = " + commentsEntity.getIs_delete());
+        sql.append(" where code = '" + commentsEntity.getCode() + "' ");
+
+        Query query = entityManager.createNativeQuery(sql.toString());
+        return query.executeUpdate();
     }
 }

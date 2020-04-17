@@ -74,4 +74,24 @@ public class CommentController {
             return ResultUtils.Error(ResultStatusCode.SYSTEM_ERR_30001, ResultStatusCode.SYSTEM_ERR_30001.getRetMsg());
         }
     }
+
+    /**
+    *@Description 删除指定code的记录
+    *@Author zhongyuan
+    *@Date 2020/4/17
+    *@Time 17:39
+    */
+    @RequestMapping("/deleteByCode")
+    public ResultMsg deleteByCode(@RequestBody CommentsRequestModel model) {
+        try {
+            commentService.deleteByCode(model.getCode(),model.getOpenId());
+            return ResultUtils.Success("已删除");
+        } catch(BizException biz){
+            logger.info(biz.getMessage());
+            return ResultUtils.Error(biz.getResultStatusCode(),biz.getMessage());
+        } catch(Exception e){
+            logger.error(e.getMessage(),e);
+            return ResultUtils.Error(ResultStatusCode.SYSTEM_ERR_30001, ResultStatusCode.SYSTEM_ERR_30001.getRetMsg());
+        }
+    }
 }

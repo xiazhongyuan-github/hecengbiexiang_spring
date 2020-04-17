@@ -1,5 +1,6 @@
 package com.hitachi.elderly.comment.repository;
 
+import com.hitachi.elderly.comment.entity.CommentsEntity;
 import com.hitachi.elderly.comment.model.CommentsRequestModel;
 import com.hitachi.elderly.comment.model.GetgommentsModel;
 
@@ -20,4 +21,6 @@ public interface CommentRepositoryCustom {
     Integer findApplaudCount(String code);
     //根据用户的openid及评论记录code，查询用户是否点赞过此条记录
     Boolean findIsApplaud(String commentCode, String openId);
+    //通用修改
+    Integer update(CommentsEntity commentsEntity);
 }

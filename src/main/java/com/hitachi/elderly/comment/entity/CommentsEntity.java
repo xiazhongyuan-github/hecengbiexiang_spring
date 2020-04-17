@@ -29,6 +29,8 @@ public class CommentsEntity extends BaseEntity{
     private String comments_content;
     @Column(columnDefinition = "varchar(50) COMMENT '文章唯一id'")
     private String article_id;
+    @Column(columnDefinition = "boolean COMMENT '是否删除'")
+    private Boolean is_delete = false;
 
 
     public static long getSerialVersionUID() {
@@ -81,5 +83,13 @@ public class CommentsEntity extends BaseEntity{
 
     public void setHead_portrait(String head_portrait) {
         this.head_portrait = head_portrait;
+    }
+
+    public Boolean getIs_delete() {
+        return is_delete;
+    }
+
+    public void setIs_delete(Boolean is_delete) {
+        this.is_delete = is_delete;
     }
 }

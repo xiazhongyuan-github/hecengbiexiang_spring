@@ -95,4 +95,26 @@ public class CommentServiceImpl implements CommentService {
         }
         return openid;
     }
+
+    /**
+    *@Description 删除指定code的记录
+    *@Author zhongyuan
+    *@Date 2020/4/17
+    *@Time 17:39
+    */
+    @Override
+    public void deleteByCode(String code,String openId) {
+        try {
+            CommentsEntity commentsEntity = commentRepository.findFirstByCode(code);
+            commentsEntity.setUpdated_at(new Date());
+            commentsEntity.setUpdated_by(openId);
+            commentsEntity.setIs_delete(true);
+            commentRepositoryCustom.update(commentsEntity);
+        } catch (BizException biz) {
+            logger.info(biz.getMessage());
+            throw new BizException(biz.getResultStatusCode(), biz.getMessage());
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+    }
 }

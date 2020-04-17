@@ -20,4 +20,7 @@ public interface CommentService {
     //获取openid
     String getOpenId(CommentsRequestModel commentsRequestModel);
 
+    //删除指定code的记录
+    void deleteByCode(String code,String openId);
+
 }

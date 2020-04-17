@@ -13,6 +13,7 @@ public class GetgommentsModel {
     private String code;//code
     private Boolean is_applaud;//是否点赞此条记录
     private Integer count;//此记录的被点赞量
+    private String wxId;//此记录的评论人的微信id
 
 
     public String getName() {
@@ -69,5 +70,13 @@ public class GetgommentsModel {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public String getWxId() {
+        return wxId;
+    }
+
+    public void setWxId(String wxId) {
+        this.wxId = wxId;
     }
 }

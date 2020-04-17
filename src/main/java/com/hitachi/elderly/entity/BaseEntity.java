@@ -32,6 +32,15 @@ public abstract class BaseEntity {
     @Column(name = "created_by",columnDefinition = "varchar(255) COMMENT '此数据的创建者'")
     private String created_by;
 
+    @LastModifiedDate
+    @Column(name = "updated_at",columnDefinition = "datetime COMMENT '更新时间'")
+    private Date updated_at;
+
+    @LastModifiedBy
+    @Column(name = "updated_by",columnDefinition = "varchar(255) COMMENT '此数据的更新者'")
+    private String updated_by;
+
+
     @Version
     @Column(columnDefinition = "bigint(20) COMMENT '版本号'")
     private long version;
@@ -68,4 +77,19 @@ public abstract class BaseEntity {
         this.version = version;
     }
 
+    public Date getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public String getUpdated_by() {
+        return updated_by;
+    }
+
+    public void setUpdated_by(String updated_by) {
+        this.updated_by = updated_by;
+    }
 }
