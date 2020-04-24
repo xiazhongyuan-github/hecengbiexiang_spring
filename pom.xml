@@ -5,7 +5,7 @@
 
     <groupId>com.hitachi</groupId>
     <artifactId>hecengbiexiang</artifactId>
-    <version>V0.0.1_20200113</version>
+    <version>V0.0.2_20200424</version>
     <packaging>jar</packaging>
 
     <name>elderly</name>

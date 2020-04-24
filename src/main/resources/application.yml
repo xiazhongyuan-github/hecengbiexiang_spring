@@ -1,5 +1,9 @@
 server:
-  port: 443
+  port: 8082
+  ssl:
+    key-store: classpath:3645045_www.xiazhongyuan.cn.pfx
+    key-store-password: Ri7obcVg
+    key-store-type: PKCS12
 #切换测试环境
 spring:
   servlet:
